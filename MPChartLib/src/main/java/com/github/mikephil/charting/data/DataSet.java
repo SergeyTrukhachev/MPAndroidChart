@@ -78,7 +78,7 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     public void calcMinMaxY(float fromX, float toX) {
         mYMax = -Float.MAX_VALUE;
         mYMin = Float.MAX_VALUE;
-        
+
         if (mEntries == null || mEntries.isEmpty())
             return;
 
@@ -294,6 +294,15 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     }
 
     @Override
+    public T getEntryForIndex(int index) {
+        if (mEntries == null || mEntries.isEmpty()) {
+            return null;
+        }
+
+        return mEntries.get(index);
+    }
+
+    @Override
     public int getEntryIndex(Entry e) {
         return mEntries.indexOf(e);
     }
@@ -310,11 +319,6 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     @Override
     public T getEntryForXValue(float xValue, float closestToY) {
         return getEntryForXValue(xValue, closestToY, Rounding.CLOSEST);
-    }
-
-    @Override
-    public T getEntryForIndex(int index) {
-        return mEntries.get(index);
     }
 
     @Override
