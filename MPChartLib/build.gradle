@@ -4,10 +4,10 @@ group='com.github.philjay'
 
 android {
     namespace = "com.github.mikephil.charting"
-    compileSdk 34
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 34
+        compileSdkVersion 36
+        targetSdkVersion 36
         versionCode 3
         versionName '3.1.0'
     }
